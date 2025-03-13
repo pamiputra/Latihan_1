@@ -11,6 +11,7 @@ func main() {
 
 	router.GET("/", rootHandler)
 	router.GET("/hello", helloHandler)
+
 	router.Run(":8080")
 }
 
