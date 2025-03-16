@@ -11,8 +11,9 @@ func main() {
 
 	router.GET("/", rootHandler)
 	router.GET("/hello", helloHandler)
+	router.GET("/books/:id", booksHandler)
 
-	router.Run(":8080")
+	router.Run()
 }
 
 func rootHandler(c *gin.Context) {
@@ -27,4 +28,10 @@ func helloHandler(c *gin.Context) {
 		"conten":    "Hello World",
 		"subtiitle": "Belajar Golang bareng pami putra",
 	})
+}
+
+func booksHandler(c *gin.Context) {
+	id := c.Param("id")
+
+	c.JSON(http.StatusOK, gin.H{"id": id})
 }
